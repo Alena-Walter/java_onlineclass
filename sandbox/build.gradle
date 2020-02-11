@@ -1,5 +1,5 @@
 apply plugin: 'java'
 apply plugin: 'application'
-mainClassName = "MyFirstProgram"
+mainClassName = "selenium.java.sandbox.MyFirstProgram"
 
 
