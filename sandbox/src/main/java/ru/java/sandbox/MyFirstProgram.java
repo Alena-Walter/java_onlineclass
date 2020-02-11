@@ -4,6 +4,7 @@ public class MyFirstProgram {
     public static void main(String[] args) {
         hello("Lena");
         hello("User");
+        hello("Andreas");
 
         Square s = new Square();
         s.l = 5.0;
