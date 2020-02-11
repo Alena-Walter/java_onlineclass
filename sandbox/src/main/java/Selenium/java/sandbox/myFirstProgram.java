@@ -1,16 +1,18 @@
-package Selenium.java.sandbox;
+package selenium.java.sandbox;
 
-public class myFirstProgram {
+public class MyFirstProgram {
     public static void main(String[] args) {
         hello("Lena");
         hello("User");
 
-        double l = 5.0;
-        System.out.println("square area with side " + l + " = " + area(l));
+        Square s = new Square();
+        s.l = 5.0;
+        System.out.println("square area with side " + s.l + " = " + area(s));
 
-        double a = 4;
-        double b = 5;
-        System.out.println("rectangle area with sides " +a+ " and " +b+ " = " + area(a,b));
+        Rectangle r = new Rectangle();
+        r.a = 4;
+        r.b = 6;
+        System.out.println("rectangle area with sides " +r.a+ " and " +r.b+ " = " + area(r));
     }
 
 
@@ -18,12 +20,12 @@ public class myFirstProgram {
         System.out.println("Hello " + somebody);
     }
 
-    public static double area (double len) {
-        return len * len;
+    public static double area (Square s) {
+        return s.l * s.l;
     }
 
-    public static double area (double a, double b) {
-        return a*b;
+    public static double area (Rectangle r) {
+        return r.a*r.b;
         }
 
 
