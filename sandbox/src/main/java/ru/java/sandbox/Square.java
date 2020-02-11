@@ -1,4 +1,4 @@
-package selenium.java.sandbox;
+package ru.java.sandbox;
 
 public class Square {
     public double l;
