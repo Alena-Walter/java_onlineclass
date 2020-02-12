@@ -10,6 +10,6 @@ public class DistanceTwoPoints {
         y1=4;
         y2=8;
         d = Math.sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1));
-        System.out.println(d);
+        System.out.printf("%.2f",d);
     }
 }
