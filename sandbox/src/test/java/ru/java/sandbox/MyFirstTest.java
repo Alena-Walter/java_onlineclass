@@ -9,6 +9,6 @@ public class MyFirstTest {
     @Test
     public void testDistance(){
         Point p = new Point(2,6,4,8);
-        Assert.assertEquals(p.distance(), 5.656854249492381);
+        Assert.assertEquals(p.distance(), 6);
     }
 }
