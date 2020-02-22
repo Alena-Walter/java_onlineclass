@@ -8,15 +8,15 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class ContactDeletionTest {
   private WebDriver wd;
-  //private String baseUrl;
+  private String baseUrl;
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
 
   @BeforeMethod(alwaysRun = true)
   public void setUp() throws Exception {
-    wd = new FirefoxDriver();
-    //baseUrl = "https://www.google.com/";
-    wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+  wd = new FirefoxDriver();
+  baseUrl = "https://www.google.com/";
+  wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
   @Test
@@ -36,29 +36,29 @@ public class ContactDeletionTest {
 
   @AfterMethod(alwaysRun = true)
   public void tearDown() throws Exception {
-    wd.quit();
-    String verificationErrorString = verificationErrors.toString();
-    if (!"".equals(verificationErrorString)) {
-      fail(verificationErrorString);
-    }
-  }
+  wd.quit();
+  String verificationErrorString = verificationErrors.toString();
+  if (!"".equals(verificationErrorString)) { fail(verificationErrorString);
+   }
+ }
 
   private boolean isElementPresent(By by) {
-    try {
-      wd.findElement(by);
-      return true;
-    } catch (NoSuchElementException e) {
-      return false;
-    }
+  try {
+  wd.findElement(by);
+  return true;
+  } catch (NoSuchElementException e) {
+  return false;
   }
+ }
 
   private boolean isAlertPresent() {
-    try {
-      wd.switchTo().alert();
-      return true;
-    } catch (NoAlertPresentException e) {
-      return false;
-    }
+  try {
+  wd.switchTo().alert();
+  return true;
+  }
+  catch (NoAlertPresentException e) {
+    return false;
+   }
   }
 
   private String closeAlertAndGetItsText() {
