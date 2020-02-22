@@ -23,9 +23,9 @@ public class ContactDeletionTest extends TestBase{
     assertTrue(closeAlertAndGetItsText().matches("^Delete 1 addresses[\\s\\S]$"));
   }
 
-   private void gotoHomePage() {
-    wd.findElement(By.linkText("home page")).click();
-  }
+   public void gotoHomePage() {
+     super.gotoHomePage();
+   }
 
 
   private String closeAlertAndGetItsText() {
