@@ -9,7 +9,7 @@ public class GroupCreationTest extends TestBase {
 
   @Test
   public void testGroupCreation() throws Exception {
-
+    gotoGroups();
     initGroupCreation("new");
     fillGroupForm(new GroupData("Elena", "Walter", "New"));
     submitGroupCreation();
