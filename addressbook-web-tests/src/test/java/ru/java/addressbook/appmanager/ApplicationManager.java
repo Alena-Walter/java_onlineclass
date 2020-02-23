@@ -82,7 +82,8 @@ public class ApplicationManager {
     }
 
     public void selectContact() {
-        groupHelper.selectGroups();
+        wd.findElement(By.name("selected[]")).click();
+        //groupHelper.selectGroups();
     }
 
     public void gotoHomePage() {
