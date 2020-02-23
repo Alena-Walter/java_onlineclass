@@ -8,7 +8,8 @@ import java.util.concurrent.TimeUnit;
 import static org.testng.Assert.assertTrue;
 
 public class ApplicationManager {
-    public WebDriver wd;
+    private WebDriver wd;
+    private NavigationHelper navigationHelper;
     private ContactHelper contactHelper;
     public GroupHelper groupHelper;
     public StringBuffer verificationErrors = new StringBuffer();
@@ -20,6 +21,7 @@ public class ApplicationManager {
         wd.get("http://localhost/addressbook/");
         groupHelper = new GroupHelper(wd);
         contactHelper = new ContactHelper(wd);
+        navigationHelper = new NavigationHelper(wd);
         login("admin", "secret");
 
     }
@@ -37,10 +39,6 @@ public class ApplicationManager {
 
     public void logout() {
       wd.findElement(By.linkText("Logout")).click();
-    }
-
-    public void returntoGroupPage() {
-      wd.findElement(By.linkText("group page")).click();
     }
 
     public void stop() {
@@ -65,23 +63,15 @@ public class ApplicationManager {
       }
     }
 
-    public void gotoGroups() {
-      wd.findElement(By.linkText("groups")).click();
-    }
-
-    public void gotoHomePage() {
-        wd.findElement(By.linkText("home page")).click();
-    }
-
-    public void gotoContactCreation() {
-      wd.findElement(By.linkText("add new")).click();
-    }
-
     public GroupHelper getGroupHelper() {
         return groupHelper;
     }
 
     public ContactHelper getContactHelper() {
         return contactHelper;
+    }
+
+    public NavigationHelper getNavigationHelper() {
+        return navigationHelper;
     }
 }
