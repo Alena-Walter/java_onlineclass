@@ -1,17 +1,18 @@
 package ru.java.addressbook;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 import java.util.concurrent.TimeUnit;
 
+import static org.testng.Assert.assertTrue;
+
 public class TestBase {
     public WebDriver wd;
+    private boolean acceptNextAlert = true;
+    private StringBuffer verificationErrors = new StringBuffer();
 
     @BeforeMethod(alwaysRun = true)
     public void setUp() throws Exception {
@@ -98,8 +99,24 @@ public class TestBase {
       wd.findElement(By.linkText("groups")).click();
     }
 
+    public void acceptNextAlert() {
+      acceptNextAlert = true;
+    }
+
+    public void closeAlert() {
+      assertTrue(closeAlertAndGetItsText().matches("^Delete 1 addresses[\\s\\S]$"));
+    }
+
+    public void deleteContact() {
+      wd.findElement(By.xpath("//input[@value='Delete']")).click();
+    }
+
+    public void selectContact() {
+      wd.findElement(By.name("selected[]")).click();
+    }
+
     public void gotoHomePage() {
-      wd.findElement(By.linkText("home page")).click();
+        wd.findElement(By.linkText("home page")).click();
     }
 
     public void submitContactForm() {
@@ -128,5 +145,21 @@ public class TestBase {
 
     public void gotoContactCreation() {
       wd.findElement(By.linkText("add new")).click();
+    }
+
+
+    public String closeAlertAndGetItsText() {
+      try {
+        Alert alert = wd.switchTo().alert();
+        String alertText = alert.getText();
+        if (acceptNextAlert) {
+          alert.accept();
+        } else {
+          alert.dismiss();
+        }
+        return alertText;
+      } finally {
+        acceptNextAlert();
+      }
     }
 }
