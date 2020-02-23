@@ -1,27 +1,26 @@
-package ru.java.addressbook;
+package ru.java.addressbook.appmanager;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import ru.java.addressbook.model.GroupContact;
+import ru.java.addressbook.model.GroupData;
 
 import java.util.concurrent.TimeUnit;
 
 import static org.testng.Assert.assertTrue;
 
-public class TestBase {
+public class ApplicationManager {
     public WebDriver wd;
-    private boolean acceptNextAlert = true;
-    private StringBuffer verificationErrors = new StringBuffer();
+    public boolean acceptNextAlert = true;
+    public StringBuffer verificationErrors = new StringBuffer();
 
-    @BeforeMethod(alwaysRun = true)
-    public void setUp() throws Exception {
-      wd = new FirefoxDriver();
+    public void init() {
+        wd = new FirefoxDriver();
 
-      wd.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-      wd.get("http://localhost/addressbook/");
-      //wd.get("http://localhost/addressbook/group.php");
-      login("admin", "secret");
+        wd.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        wd.get("http://localhost/addressbook/");
+        //wd.get("http://localhost/addressbook/group.php");
+        login("admin", "secret");
     }
 
     public void login(String username, String password) {
@@ -63,10 +62,8 @@ public class TestBase {
       wd.findElement(By.name(s)).click();
     }
 
-    @AfterMethod(alwaysRun = true)
-    public void tearDown() throws Exception {
-      wd.quit();
-
+    public void stop() {
+        wd.quit();
     }
 
     public boolean isElementPresent(By by) {
@@ -146,7 +143,6 @@ public class TestBase {
     public void gotoContactCreation() {
       wd.findElement(By.linkText("add new")).click();
     }
-
 
     public String closeAlertAndGetItsText() {
       try {

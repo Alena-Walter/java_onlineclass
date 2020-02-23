@@ -1,4 +1,4 @@
-package ru.java.addressbook;
+package ru.java.addressbook.model;
 
 public class GroupContact {
     private final String firstname;

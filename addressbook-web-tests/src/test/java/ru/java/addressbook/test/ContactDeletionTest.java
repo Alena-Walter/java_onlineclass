@@ -1,4 +1,4 @@
-package ru.java.addressbook;
+package ru.java.addressbook.test;
 
 import org.testng.annotations.Test;
 
@@ -8,10 +8,10 @@ public class ContactDeletionTest extends TestBase{
   @Test
   public void testContactDeletion() throws Exception {
 
-    selectContact();
-    acceptNextAlert();
-    deleteContact();
-    closeAlert();
+    app.selectContact();
+    app.acceptNextAlert();
+    app.deleteContact();
+    app.closeAlert();
 
   }
 
