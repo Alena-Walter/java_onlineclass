@@ -29,7 +29,7 @@ public class ContactHelper {
 
     public void selectContact() {
         wd.findElement(By.name("selected[]")).click();
-        //groupHelper.selectGroups();
+
     }
 
     public void submitContactForm() {
