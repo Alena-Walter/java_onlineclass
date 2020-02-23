@@ -8,10 +8,10 @@ public class ContactDeletionTest extends TestBase{
   @Test
   public void testContactDeletion() throws Exception {
 
-    app.selectContact();
-    app.acceptNextAlert();
-    app.deleteContact();
-    app.closeAlert();
+    app.getContactHelper().selectContact();
+    app.getContactHelper().acceptNextAlert();
+    app.getContactHelper().deleteContact();
+    app.getContactHelper().closeAlert();
 
   }
 
