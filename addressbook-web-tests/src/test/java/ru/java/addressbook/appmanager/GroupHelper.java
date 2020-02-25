@@ -4,19 +4,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import ru.java.addressbook.model.GroupData;
 
-public class GroupHelper {
-    private WebDriver wd;
+public class GroupHelper extends HelperBase{
     public GroupHelper(WebDriver wd) {
-        this.wd = wd;
+        super(wd);
     }
 
 
     public void submitGroupCreation() {
         click(By.name("submit"));
-    }
-
-    private void click(By locator) {
-        wd.findElement(locator).click();
     }
 
     public void fillGroupForm(GroupData groupData) {
@@ -25,13 +20,8 @@ public class GroupHelper {
         type(By.name("group_footer"), groupData.getFooter());
     }
 
-    private void type(By locator, String text) {
-        click(locator);
-        wd.findElement(locator).clear();
-        wd.findElement(locator).sendKeys(text);
-    }
-
     public void initGroupCreation(String s) {
+
         click(By.name(s));
     }
 
@@ -40,6 +30,7 @@ public class GroupHelper {
     }
 
     public void selectGroups() {
+
         click(By.name("selected[]"));
     }
 }
