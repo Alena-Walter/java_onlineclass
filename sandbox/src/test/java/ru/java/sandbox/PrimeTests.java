@@ -15,6 +15,11 @@ public class PrimeTests {
         Assert.assertTrue(Primes.isPrimeFast(Integer.MAX_VALUE));
     }
 
+    @Test
+    public void testPrimeFastM() {
+        Assert.assertTrue(Primes.isPrimeFastM(Integer.MAX_VALUE));
+    }
+
     @Test(enabled = false)
     public void testPrimeLong() {
         long n = Integer.MAX_VALUE;
