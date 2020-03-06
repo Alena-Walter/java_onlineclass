@@ -24,7 +24,7 @@ public class Collections {
             for (String l : languages) {
                 System.out.println("I want to learn " + l);
 
-                
+
 
         // Perebor Massiva Option 1: Start with index 0, till last one, with step 1
        // for (int i = 0; i < langs.length; i++) {
