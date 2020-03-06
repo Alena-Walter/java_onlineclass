@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.java.addressbook.test.ContactCreationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-03-06T01:40:06" hostname="OPTIFLEX-PC" time="0.891">
+  <properties/>
+  <testcase name="testContactCreation" classname="ru.java.addressbook.test.ContactCreationTest" time="0.891"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Starting ChromeDriver 80.0.3987.106 (f68069574609230cf9b635cd784cfb1bf81bb53a-refs/branch-heads/3987@{#882}) on port 26816
+Only local connections are allowed.
+Please protect ports used by ChromeDriver and related test frameworks to prevent access by malicious code.
+[1583458804.171][WARNING]: Timed out connecting to Chrome, retrying...
+Mar 05, 2020 8:40:06 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+]]></system-err>
+</testsuite>
