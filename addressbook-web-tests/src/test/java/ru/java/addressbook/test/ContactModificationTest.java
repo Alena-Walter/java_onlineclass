@@ -1,5 +1,6 @@
 package ru.java.addressbook.test;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.java.addressbook.model.GroupContact;
 
@@ -16,10 +17,14 @@ public class ContactModificationTest extends TestBase {
 
         }
         app.getNavigationHelper().gotoHomePage();
+        int before = app.getContactHelper().getContactCount();
         app.getContactHelper().selectContact();
         app.getContactHelper().initContactModification();
         app.getContactHelper().fillContactForm(new GroupContact("Elena", "Walter6", null, null, null));
         app.getContactHelper().submitContactModification();
+        app.getNavigationHelper().gotoHomePage();
+        int after = app.getContactHelper().getContactCount();
+        Assert.assertEquals(after, before);
         
     }
 
