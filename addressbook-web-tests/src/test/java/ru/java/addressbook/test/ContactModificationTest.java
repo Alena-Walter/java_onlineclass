@@ -18,7 +18,7 @@ public class ContactModificationTest extends TestBase {
         }
         app.getNavigationHelper().gotoHomePage();
         int before = app.getContactHelper().getContactCount();
-        app.getContactHelper().selectContact();
+        app.getContactHelper().selectContact(0);
         app.getContactHelper().initContactModification();
         app.getContactHelper().fillContactForm(new GroupContact("Elena", "Walter6", null, null, null));
         app.getContactHelper().submitContactModification();
