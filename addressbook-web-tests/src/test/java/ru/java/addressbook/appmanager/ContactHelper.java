@@ -3,7 +3,12 @@ package ru.java.addressbook.appmanager;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import ru.java.addressbook.model.GroupContact;
+import ru.java.addressbook.model.GroupData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.testng.Assert.assertTrue;
 
@@ -84,5 +89,16 @@ public class ContactHelper extends HelperBase{
 
     public int getContactCount() {
         return wd.findElements(By.name("selected[]")).size();
+    }
+
+    public List<GroupContact> getContactList() {
+        List<GroupContact> contacts = new ArrayList<GroupContact>();
+        List<WebElement> elements = wd.findElements(By.name("selected[]"));
+        for (WebElement element : elements) {
+            String name = element.getText();
+            GroupContact contact = new GroupContact("Elena1", "Walter", "Charlotte", "9262066973", null);
+            contacts.add(contact);
+        }
+        return contacts;
     }
 }
