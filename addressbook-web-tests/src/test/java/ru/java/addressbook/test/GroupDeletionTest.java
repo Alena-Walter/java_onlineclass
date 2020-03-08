@@ -28,6 +28,10 @@ public class GroupDeletionTest extends TestBase {
     List<GroupData> after = app.getGroupHelper().getGroupList();
     //int after = app.getGroupHelper().getGroupCount();
     Assert.assertEquals(after.size(), before.size() - 1);
+    System.out.println(after.size());
+
+    before.remove(before.size() - 1);
+    Assert.assertEquals(before, after);
   }
 
 }
