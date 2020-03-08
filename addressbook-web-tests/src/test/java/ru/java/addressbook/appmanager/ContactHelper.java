@@ -93,11 +93,15 @@ public class ContactHelper extends HelperBase{
 
     public List<GroupContact> getContactList() {
         List<GroupContact> contacts = new ArrayList<GroupContact>();
-        List<WebElement> elements = wd.findElements(By.cssSelector("tr.entry"));
+        List<WebElement> elements = wd.findElements(By.name("entry"));
+
         for (WebElement element : elements) {
-            //String name = element.getText();
+            List<WebElement> cells = element.findElements(By.tagName("td"));
+            String lastname = cells.get(1).getText();
+            String firstname = cells.get(2).getText();
             String id = element.findElement(By.tagName("input")).getAttribute("value");
-            GroupContact contact = new GroupContact(id,"Elena1", "Walter", "Charlotte", "9262066973", null);
+            //GroupContact contact = new GroupContact(id,"Elena1", "Walter", "Charlotte", "9262066973", null);
+            GroupContact contact = new GroupContact(id, firstname, lastname, null, null, null);
             contacts.add(contact);
         }
         return contacts;
