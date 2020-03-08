@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.java.addressbook.model.GroupContact;
 
+import java.util.HashSet;
 import java.util.List;
 
 public class ContactModificationTest extends TestBase {
@@ -23,13 +24,18 @@ public class ContactModificationTest extends TestBase {
         //int before = app.getContactHelper().getContactCount();
         app.getContactHelper().selectContact(before.size() - 1);
         app.getContactHelper().initContactModification();
-        app.getContactHelper().fillContactForm(new GroupContact("Elena", "Walter6", null, null, null));
+        GroupContact contact = new GroupContact (before.get(before.size() - 1).getId(),"Elena", "Walter6", null, null, null);
+        app.getContactHelper().fillContactForm(contact);
         app.getContactHelper().submitContactModification();
         app.getNavigationHelper().gotoHomePage();
         List<GroupContact> after = app.getContactHelper().getContactList();
         //int after = app.getContactHelper().getContactCount();
         Assert.assertEquals(after.size(), before.size());
         System.out.println(after.size());
+
+        before.remove(before.size() - 1);
+        before.add(contact);
+        Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after));
     }
 
 }
