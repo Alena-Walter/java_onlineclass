@@ -28,9 +28,7 @@ public class GroupContact {
         this.email = email;
     }
 
-    public String getId() {
-        return id;
-    }
+    public String getId() { return id; }
 
     public String getFirstname() {
         return firstname;

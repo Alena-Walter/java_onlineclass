@@ -31,7 +31,7 @@ public class ContactModificationTest extends TestBase {
         List<GroupContact> after = app.getContactHelper().getContactList();
         //int after = app.getContactHelper().getContactCount();
         Assert.assertEquals(after.size(), before.size());
-        System.out.println(after.size());
+        //System.out.println(after.size());
 
         before.remove(before.size() - 1);
         before.add(contact);
