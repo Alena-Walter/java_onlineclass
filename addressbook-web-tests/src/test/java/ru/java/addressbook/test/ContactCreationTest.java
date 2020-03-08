@@ -22,6 +22,7 @@ public class ContactCreationTest extends TestBase {
     List<GroupContact> after = app.getContactHelper().getContactList();
     //int after = app.getContactHelper().getContactCount();
     Assert.assertEquals(after.size(), before.size() + 1);
+    System.out.println(after.size());
   }
 
 

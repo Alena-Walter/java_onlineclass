@@ -5,6 +5,8 @@ import org.testng.annotations.Test;
 import ru.java.addressbook.model.GroupContact;
 import ru.java.addressbook.model.GroupData;
 
+import java.util.List;
+
 public class ContactDeletionTest extends TestBase{
 
 
@@ -21,14 +23,17 @@ public class ContactDeletionTest extends TestBase{
     }
 
     app.getNavigationHelper().gotoHomePage();
-    int before = app.getContactHelper().getContactCount();
-    app.getContactHelper().selectContact(0);
+    List<GroupContact> before = app.getContactHelper().getContactList();
+    //int before = app.getContactHelper().getContactCount();
+    app.getContactHelper().selectContact(before.size() - 1);
     app.getContactHelper().acceptNextAlert();
     app.getContactHelper().deleteContact();
     app.getContactHelper().closeAlert();
     app.getNavigationHelper().gotoHomePage();
-    int after = app.getContactHelper().getContactCount();
-    Assert.assertEquals(after, before - 1);
+    List<GroupContact> after = app.getContactHelper().getContactList();
+    //int after = app.getContactHelper().getContactCount();
+    Assert.assertEquals(after.size(), before.size() - 1);
+    System.out.println(after.size());
 
   }
 
