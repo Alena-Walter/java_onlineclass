@@ -20,16 +20,18 @@ public class ContactModificationTest extends TestBase {
 
         }
         app.getNavigationHelper().gotoHomePage();
+
         List<GroupContact> before = app.getContactHelper().getContactList();
-        //int before = app.getContactHelper().getContactCount();
         app.getContactHelper().selectContact(before.size() - 1);
         app.getContactHelper().initContactModification();
+
         GroupContact contact = new GroupContact (before.get(before.size() - 1).getId(),"Elena", "Walter6", null, null, null);
         app.getContactHelper().fillContactForm(contact);
         app.getContactHelper().submitContactModification();
         app.getNavigationHelper().gotoHomePage();
+
         List<GroupContact> after = app.getContactHelper().getContactList();
-        //int after = app.getContactHelper().getContactCount();
+
         Assert.assertEquals(after.size(), before.size());
         //System.out.println(after.size());
 
