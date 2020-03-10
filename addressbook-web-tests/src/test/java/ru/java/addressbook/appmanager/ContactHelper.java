@@ -36,7 +36,7 @@ public class ContactHelper extends HelperBase{
 
     public void selectContact( int index) {
         wd.findElements(By.name("selected[]")).get(index).click();
-        //click(By.name("selected[]"));
+
 
     }
 
@@ -69,9 +69,11 @@ public class ContactHelper extends HelperBase{
       }
     }
 
+
     public void initContactModification() {
         click(By.xpath("//img[@alt='Edit']"));
     }
+
 
     public void submitContactModification() {
         click(By.name("update"));
